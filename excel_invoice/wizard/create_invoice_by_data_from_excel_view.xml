@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="create_invoice_form_view_wiz">
+      <field name="name">Create invoice by excel data</field>
+      <field name="model">create.invoice.by.excel.data</field>
+      <field name="arch" type="xml">
+      <form>
+        <group>
+            <group>
+                <field name="tag" string="Tag"/>
+                <field name="document" string="Document"/>
+            </group>
+        </group>
+        <footer>
+            <button name="read_excel" string="create" type="object" class="btn btn-success"/>
+            <button special="cancel" string="Cancel" class="btn btn-secondary"/>
+        </footer>
+      </form>
+      </field>
+    </record>
+    <record id="create_invoice_by_data_from_excel_action" model="ir.actions.act_window">
+       <field name="name">Create invoice by excel data</field>
+       <field name="res_model">create.invoice.by.excel.data</field>
+       <field name="view_mode">form</field>
+       <field name="target">new</field>
+    </record>
+
+ <menuitem name="Create invoices" id="menu_create_invoice" parent="excel_invoice.menu_1"
+              action="excel_invoice.create_invoice_by_data_from_excel_action"/>
+
+  </data>
+</odoo>

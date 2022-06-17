@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+   <record model="ir.ui.view" id="excel_invoice.list">
+      <field name="name">ExcelInvoice list</field>
+      <field name="model">excel_invoice.excel_invoice</field>
+      <field name="arch" type="xml">
+       <tree>
+       </tree>
+
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="excel_invoice.action_window">
+      <field name="name">ExcelInvoice window</field>
+      <field name="res_model">excel_invoice.excel_invoice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="excel_invoice.action_server">
+      <field name="name">ExcelInvoice server</field>
+      <field name="model_id" ref="model_excel_invoice_excel_invoice"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="ExcelInvoice" id="excel_invoice.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Create Invoice" id="excel_invoice.menu_1" parent="excel_invoice.menu_root"/>
+
+    <!-- actions -->
+
+
+  </data>
+</odoo>
