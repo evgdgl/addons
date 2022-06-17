@@ -25,7 +25,7 @@
        <field name="target">new</field>
     </record>
 
- <menuitem name="Create invoices" id="menu_create_invoice" parent="excel_invoice.menu_1"
+ <menuitem name="Invoices from Excel" id="menu_create_invoice" parent="account.menu_finance_receivables"
               action="excel_invoice.create_invoice_by_data_from_excel_action"/>
 
   </data>
